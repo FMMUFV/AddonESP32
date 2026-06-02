@@ -11,10 +11,10 @@ class AddonESP32Preferences(bpy.types.AddonPreferences):
     bl_idname = __package__
 
     enabled: bpy.props.BoolProperty(
-        name="Activar AddonESP32",
+        name="Activar ESP32 FMM",
         description=(
             "Activa o desactiva el addon. "
-            "Al desactivar se oculta el panel ESP32."
+            "Al desactivar se oculta el panel ESP32 FMM."
         ),
         default=True,
         update=_on_enabled_changed,
@@ -28,7 +28,7 @@ class AddonESP32Preferences(bpy.types.AddonPreferences):
 
         if not self.enabled:
             box = layout.box()
-            box.label(text="Addon desactivado: el panel ESP32 está oculto.", icon="INFO")
+            box.label(text="Addon desactivado: el panel ESP32 FMM está oculto.", icon="INFO")
             box.label(text="Reactiva la casilla para volver a usarlo.")
 
 

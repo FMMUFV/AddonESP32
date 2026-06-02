@@ -3,11 +3,11 @@ from . import preferences
 
 
 class ADDESP32_PT_main(bpy.types.Panel):
-    bl_label       = "ESP32"
+    bl_label       = "ESP32 FMM"
     bl_idname      = "ADDESP32_PT_main"
     bl_space_type  = "VIEW_3D"
     bl_region_type = "UI"
-    bl_category    = "ESP32"
+    bl_category    = "ESP32 FMM"
 
     @classmethod
     def poll(cls, context):
@@ -16,7 +16,7 @@ class ADDESP32_PT_main(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
 
-        layout.label(text="AddonESP32 v0.1.0", icon="DECORATE_LINKED")
+        layout.label(text="ESP32 FMM v0.1.0", icon="DECORATE_LINKED")
 
         layout.separator()
 
