@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ESP32 WiFi</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 0 15px;
+      background: #ffffff;
+      color: #121212;
+    }
+    h2 { color: #121212; }
+    ul {
+      list-style: none;
+      padding: 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      background: #f0f0f0;
+    }
+    li {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+      color: #121212;
+    }
+    li:last-child { border-bottom: none; }
+    li:hover { background: #e0e0e0; }
+    .sel { background: #d0eaff; color: #121212; font-weight: bold; }
+    .pwd-box {
+      padding: 10px 15px;
+      background: #e8f4ff;
+      border-bottom: 1px solid #ccc;
+    }
+    .pwd-box input[type=password],
+    .pwd-box input[type=text] {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0 8px;
+      box-sizing: border-box;
+      background: #ffffff;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      color: #121212;
+      font-size: 15px;
+    }
+    .pwd-box input[type=submit] {
+      width: 100%;
+      padding: 10px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .pwd-box input[type=submit]:active { background: #388e3c; }
+    .pwd-box label { color: #555; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h2>Conecta el ESP32 a la WiFi</h2>
+  <form method="POST" action="/">
+    <input id="s" name="s" type="hidden">
+    <ul>{redes}</ul>
+    <div id="pwd-box" class="pwd-box" style="display:none;border-radius:0 0 6px 6px;margin-top:-15px">
+      <label>Contraseña</label>
+      <input name="p" type="password" placeholder="Introduce la contraseña">
+      <label style="margin-top:6px;display:block">Nombre del dispositivo</label>
+      <input name="h" id="hname" type="text" placeholder="esp32" maxlength="20"
+             oninput="document.getElementById('hint').textContent=(this.value.trim()||'esp32')+'.local'">
+      <p style="font-size:13px;color:#555;margin:2px 0 8px">
+        Accede como: <strong id="hint">esp32.local</strong>
+      </p>
+      <input type="submit" value="Conectar">
+    </div>
+  </form>
+  <script>
+    function sel(el) {
+      document.querySelectorAll('li').forEach(function(l) { l.classList.remove('sel'); });
+      el.classList.add('sel');
+      document.getElementById('s').value = el.innerText;
+      var box = document.getElementById('pwd-box');
+      el.parentNode.insertBefore(box, el.nextSibling);
+      box.style.display = 'block';
+      box.querySelector('input[type=password]').focus();
+    }
+  </script>
+</body>
+</html>
