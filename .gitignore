@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Blender
+*.blend1
+*.blend2
+
+# Distribución
+*.zip
+
+# IDE
+.vscode/
+*.suo
+.vs/
+
+# Sistema
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Logs
+logs/
+*.log
+
+# Variables de entorno
+.env
